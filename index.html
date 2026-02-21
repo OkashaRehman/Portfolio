@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Minimalistic Developer Portfolio - Building scalable and creative web experiences.">
+    <title>Developer Portfolio</title>
+
+    <!-- Google Fonts: Space Grotesk (Headers)    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <!-- Custom Cursor -->
+    <!-- Custom Cursor Removed -->
+
+    <!-- Navigation -->
+    <header class="header">
+        <div class="container header__container">
+            <a href="#" class="logo">Okasha Rehman</a>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="#work" class="nav__link">Projects</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link">Contacts</a></li>
+                </ul>
+            </nav>
+            <div class="social-icons">
+                <!-- Icons can be added here, using text for now as placeholders or SVGs -->
+                <span style="color:white">IG</span>
+                <span style="color:white">TW</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="container hero__container">
+                <div class="hero__content">
+                    <p class="hero__greeting">Hi, I'm Okasha Rehman</p>
+                    <h1 class="hero__title">
+                        Computer<br>
+                        Scientist
+                    </h1>
+                    <p class="hero__desc">
+                        Passionate about leveraging technology to solve complex problems. Specializing in software
+                        development,
+                        algorithms, and building innovative solutions that bridge the gap between theory and real-world
+                        applications.
+                    </p>
+                    <div class="hero__actions">
+                        <a href="#work" class="btn btn--outline">View My Projects</a>
+                    </div>
+                </div>
+
+                <div class="hero__image-wrapper">
+                    <!-- Rotating or swapping to the second uploaded image if it fits better, using profile.png for now -->
+                    <img src="assets/images/profile.png" alt="Profile Portrait" class="hero__image">
+                </div>
+            </div>
+        </section>
+
+        <!-- Work Section -->
+        <section class="work section" id="work">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Selected Work</h2>
+                    <p class="section__subtitle">A selection of my recent projects.</p>
+                </div>
+
+                <!-- Project Slider with Arrows -->
+                <div class="slider-wrapper">
+                    <button class="slider-arrow slider-arrow--prev" aria-label="Previous Project">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15 19L8 12L15 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+
+                    <div class="slider-container">
+                        <div class="slider-track">
+                            <!-- SET 1 -->
+                            <article class="project-card" data-project-id="water-shortage">
+                                <div class="project-card__image-holder">
+                                    <div class="placeholder-image"
+                                        style="background: linear-gradient(135deg, #10b981 0%, #064e3b 100%)"></div>
+                                </div>
+                                <div class="project-card__overlay">
+                                    <h3 class="project-card__title">Agricultural Water Prediction</h3>
+                                    <p class="project-card__desc">ML system predicting water shortage severity.</p>
+                                    <span class="project-link">View Details &rarr;</span>
+                                </div>
+                            </article>
+
+                            <article class="project-card" data-project-id="healthcare-ui">
+                                <div class="project-card__image-holder">
+                                    <div class="placeholder-image"
+                                        style="background: linear-gradient(135deg, #a855f7 0%, #581c87 100%)"></div>
+                                </div>
+                                <div class="project-card__overlay">
+                                    <h3 class="project-card__title">Smart Healthcare UI</h3>
+                                    <p class="project-card__desc">Accessibility-first appointment booking system.</p>
+                                    <span class="project-link">View Details &rarr;</span>
+                                </div>
+                            </article>
+
+                            <article class="project-card" data-project-id="web-scraping">
+                                <div class="project-card__image-holder">
+                                    <div class="placeholder-image"
+                                        style="background: linear-gradient(135deg, #f97316 0%, #9a3412 100%)"></div>
+                                </div>
+                                <div class="project-card__overlay">
+                                    <h3 class="project-card__title">Web Scraping & NLP</h3>
+                                    <p class="project-card__desc">Analytics platform with sentiment analysis.</p>
+                                    <span class="project-link">View Details &rarr;</span>
+                                </div>
+                            </article>
+
+                            <article class="project-card" data-project-id="rentwise">
+                                <div class="project-card__image-holder">
+                                    <div class="placeholder-image"
+                                        style="background: linear-gradient(135deg, #3b82f6 0%, #1e3a8a 100%)"></div>
+                                </div>
+                                <div class="project-card__overlay">
+                                    <h3 class="project-card__title">RentWise Islamabad</h3>
+                                    <p class="project-card__desc">Full-stack property management platform.</p>
+                                    <span class="project-link">View Details &rarr;</span>
+                                </div>
+                            </article>
+
+                            <article class="project-card" data-project-id="social-media">
+                                <div class="project-card__image-holder">
+                                    <div class="placeholder-image"
+                                        style="background: linear-gradient(135deg, #ec4899 0%, #831843 100%)"></div>
+                                </div>
+                                <div class="project-card__overlay">
+                                    <h3 class="project-card__title">Social Media Analytics</h3>
+                                    <p class="project-card__desc">Interactive dashboard for engagement insights.</p>
+                                    <span class="project-link">View Details &rarr;</span>
+                                </div>
+                            </article>
+
+                            <article class="project-card" data-project-id="superstore-bi">
+                                <div class="project-card__image-holder">
+                                    <div class="placeholder-image"
+                                        style="background: linear-gradient(135deg, #14b8a6 0%, #115e59 100%)"></div>
+                                </div>
+                                <div class="project-card__overlay">
+                                    <h3 class="project-card__title">Superstore BI Dash</h3>
+                                    <p class="project-card__desc">Tableau dashboard for sales & profit analysis.</p>
+                                    <span class="project-link">View Details &rarr;</span>
+                                </div>
+                            </article>
+
+                            <article class="project-card" data-project-id="study-buddy">
+                                <div class="project-card__image-holder">
+                                    <div class="placeholder-image"
+                                        style="background: linear-gradient(135deg, #6366f1 0%, #3730a3 100%)"></div>
+                                </div>
+                                <div class="project-card__overlay">
+                                    <h3 class="project-card__title">Study Buddy App</h3>
+                                    <p class="project-card__desc">Mobile UI/UX for student collaboration.</p>
+                                    <span class="project-link">View Details &rarr;</span>
+                                </div>
+                            </article>
+
+                            <!-- SET 2 (Duplicate for Loop) -->
+                            <article class="project-card" data-project-id="water-shortage">
+                                <div class="project-card__image-holder">
+                                    <div class="placeholder-image"
+                                        style="background: linear-gradient(135deg, #10b981 0%, #064e3b 100%)"></div>
+                                </div>
+                                <div class="project-card__overlay">
+                                    <h3 class="project-card__title">Agricultural Water Prediction</h3>
+                                    <p class="project-card__desc">ML system predicting water shortage severity.</p>
+                                    <span class="project-link">View Details &rarr;</span>
+                                </div>
+                            </article>
+
+                            <article class="project-card" data-project-id="healthcare-ui">
+                                <div class="project-card__image-holder">
+                                    <div class="placeholder-image"
+                                        style="background: linear-gradient(135deg, #a855f7 0%, #581c87 100%)"></div>
+                                </div>
+                                <div class="project-card__overlay">
+                                    <h3 class="project-card__title">Smart Healthcare UI</h3>
+                                    <p class="project-card__desc">Accessibility-first appointment booking system.</p>
+                                    <span class="project-link">View Details &rarr;</span>
+                                </div>
+                            </article>
+
+                            <article class="project-card" data-project-id="web-scraping">
+                                <div class="project-card__image-holder">
+                                    <div class="placeholder-image"
+                                        style="background: linear-gradient(135deg, #f97316 0%, #9a3412 100%)"></div>
+                                </div>
+                                <div class="project-card__overlay">
+                                    <h3 class="project-card__title">Web Scraping & NLP</h3>
+                                    <p class="project-card__desc">Analytics platform with sentiment analysis.</p>
+                                    <span class="project-link">View Details &rarr;</span>
+                                </div>
+                            </article>
+
+                            <article class="project-card" data-project-id="rentwise">
+                                <div class="project-card__image-holder">
+                                    <div class="placeholder-image"
+                                        style="background: linear-gradient(135deg, #3b82f6 0%, #1e3a8a 100%)"></div>
+                                </div>
+                                <div class="project-card__overlay">
+                                    <h3 class="project-card__title">RentWise Islamabad</h3>
+                                    <p class="project-card__desc">Full-stack property management platform.</p>
+                                    <span class="project-link">View Details &rarr;</span>
+                                </div>
+                            </article>
+
+                            <article class="project-card" data-project-id="social-media">
+                                <div class="project-card__image-holder">
+                                    <div class="placeholder-image"
+                                        style="background: linear-gradient(135deg, #ec4899 0%, #831843 100%)"></div>
+                                </div>
+                                <div class="project-card__overlay">
+                                    <h3 class="project-card__title">Social Media Analytics</h3>
+                                    <p class="project-card__desc">Interactive dashboard for engagement insights.</p>
+                                    <span class="project-link">View Details &rarr;</span>
+                                </div>
+                            </article>
+
+                            <article class="project-card" data-project-id="superstore-bi">
+                                <div class="project-card__image-holder">
+                                    <div class="placeholder-image"
+                                        style="background: linear-gradient(135deg, #14b8a6 0%, #115e59 100%)"></div>
+                                </div>
+                                <div class="project-card__overlay">
+                                    <h3 class="project-card__title">Superstore BI Dash</h3>
+                                    <p class="project-card__desc">Tableau dashboard for sales & profit analysis.</p>
+                                    <span class="project-link">View Details &rarr;</span>
+                                </div>
+                            </article>
+
+                            <article class="project-card" data-project-id="study-buddy">
+                                <div class="project-card__image-holder">
+                                    <div class="placeholder-image"
+                                        style="background: linear-gradient(135deg, #6366f1 0%, #3730a3 100%)"></div>
+                                </div>
+                                <div class="project-card__overlay">
+                                    <h3 class="project-card__title">Study Buddy App</h3>
+                                    <p class="project-card__desc">Mobile UI/UX for student collaboration.</p>
+                                    <span class="project-link">View Details &rarr;</span>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <button class="slider-arrow slider-arrow--next" aria-label="Next Project">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 5L16 12L9 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about section" id="about">
+            <div class="container about__container">
+                <!-- About content will be replaced by Skills, Expertise, and Education sections -->
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="tall-title" style="transform: translateY(0); opacity: 1; color: #fff;">About Me</h2>
+                </div>
+                <div class="skills-container">
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-name">Frontend Development</div>
+                            <div class="skill-description">Building data-driven interfaces with React and modern
+                                JavaScript. Focused on performance, reusable components, and translating analytical
+                                outputs into clear, intuitive user experiences.</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Backend Systems</div>
+                            <div class="skill-description">Designing scalable APIs and structured backend architectures
+                                using Node.js and Express. Emphasis on clean service layers, authentication, and
+                                reliable data flow.</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">UI/UX Design</div>
+                            <div class="skill-description">Creating accessibility-first interfaces with structured
+                                design
+                                thinking. Prioritizing usability, clarity, and frictionless workflows in data-heavy and
+                                user-sensitive environments.</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Data Analytics & Machine Learning</div>
+                            <div class="skill-description">Applying exploratory data analysis, feature engineering, and
+                                predictive modeling to transform raw datasets into actionable insights and
+                                decision-support systems.</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Full-Stack Development</div>
+                            <div class="skill-description">Developing end-to-end platforms integrating databases, APIs,
+                                and responsive frontends. Focused on maintainability, system cohesion, and long-term
+                                scalability.</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Database & System Design</div>
+                            <div class="skill-description">Structuring relational and NoSQL databases with performance,
+                                normalization, and data integrity in mind. Designing schemas aligned with real-world
+                                application logic.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Expertise Section -->
+        <section id="expertise" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="tall-title">Expertise</h2>
+                </div>
+                <div class="expertise-container">
+                    <div class="expertise-left">
+                        <div class="expertise-intro">
+                            I specialize in building digital products from concept to deployment, with a focus on clean
+                            code and exceptional user experiences.
+                        </div>
+                    </div>
+                    <div class="expertise-right">
+                        <div class="expertise-item">
+                            <div class="expertise-number">01</div>
+                            <div class="expertise-title">Product Development</div>
+                            <div class="expertise-desc">End-to-end development of web and mobile applications. From
+                                initial concept through design, development, testing, and deployment.</div>
+                        </div>
+                        <div class="expertise-item">
+                            <div class="expertise-number">02</div>
+                            <div class="expertise-title">Technical Leadership</div>
+                            <div class="expertise-desc">Leading development teams and making architectural decisions.
+                                Code reviews, mentoring, and establishing best practices.</div>
+                        </div>
+                        <div class="expertise-item">
+                            <div class="expertise-number">03</div>
+                            <div class="expertise-title">Performance Optimization</div>
+                            <div class="expertise-desc">Analyzing and improving application performance. Reducing load
+                                times, optimizing databases, and implementing caching strategies.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="tall-title">Education</h2>
+                </div>
+                <div class="education-container">
+                    <div class="timeline">
+                        <div class="education-item">
+                            <div class="education-year">2023 - 2027</div>
+                            <div class="education-degree">Bachelor of Science in Computer Science</div>
+                            <div class="education-school">National University of Sciences and Technology (SEECS)</div>
+                            <div class="education-details">Focus on Software Engineering, Data Structures, Algorithms,
+                                and Artificial Intelligence. Active involvement in technical societies and hackathons.
+                            </div>
+                        </div>
+                        <div class="education-item">
+                            <div class="education-year">2023</div>
+                            <div class="education-degree">Professional Certifications</div>
+                            <div class="education-school">Simplilearn & Great Learning</div>
+                            <div class="education-details">
+                                <ul style="list-style-type: none; padding: 0; margin: 0;">
+                                    <li style="margin-bottom: 0.5rem;">• Introduction to Responsible AI (Simplilearn)
+                                    </li>
+                                    <li style="margin-bottom: 0.5rem;">• Artificial Intelligence Beginners Guide
+                                        (Simplilearn)</li>
+                                    <li>• Intro to Computer Vision (Great Learning)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        </div>
+        </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact section" id="contact">
+            <div class="container contact__container">
+                <!-- Page Header -->
+                <div class="contact__header">
+                    <h2 class="section__title center-text">Let's Connect</h2>
+                    <div class="separator">
+                        <div class="line"></div>
+                        <div class="dot"></div>
+                        <div class="line"></div>
+                    </div>
+                    <p class="contact__subtitle">
+                        Whether you have a project in mind or simply wish to discuss technology,<br>
+                        I welcome the opportunity to connect.
+                    </p>
+                </div>
+
+                <!-- Contact Form Wrapper -->
+                <div class="contact__wrapper">
+                    <!-- Form Card -->
+                    <!-- Form Card -->
+                    <div class="contact__form-card">
+                        <form action="https://formspree.io/f/xdalgkzd" method="POST" class="contact__form"
+                            id="contact-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name" class="form-label">Name</label>
+                                    <input type="text" id="name" name="name" class="form-input"
+                                        placeholder="Your full name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" id="email" name="email" class="form-input"
+                                        placeholder="your@email.com" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subject" class="form-label">Subject</label>
+                                <input type="text" id="subject" name="subject" class="form-input"
+                                    placeholder="How may I assist you?" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea id="message" name="message" rows="5" class="form-input resize-none"
+                                    placeholder="Share your thoughts..." required></textarea>
+                            </div>
+
+                            <div class="form-action">
+                                <button type="submit" class="btn btn--outline btn--wide" id="form-submit-btn">
+                                    <span style="font-size: 1.25rem; margin-right: 0.5rem;">&#9993;</span>
+                                    <span>Send Message</span>
+                                </button>
+                            </div>
+                            <p id="form-status" style="margin-top: 1rem; text-align: center; display: none;"></p>
+                        </form>
+                    </div>
+
+                    <!-- Contact Info Grid -->
+                    <div class="contact__info-grid">
+                        <!-- Direct Contact -->
+                        <div class="info-card">
+                            <div class="icon-circle">
+                                <span>&#9993;</span>
+                            </div>
+                            <h3 class="info-title">Direct Contact</h3>
+                            <div class="info-links">
+                                <a href="mailto:okasharehman735@gmail.com"
+                                    class="info-link">okasharehman735@gmail.com</a>
+                                <a href="tel:03085999319" class="info-link">+92 308 5999319</a>
+                            </div>
+                        </div>
+
+                        <!-- Connect Online -->
+                        <div class="info-card">
+                            <h3 class="info-title">Connect Online</h3>
+                            <div class="social-list">
+                                <a href="https://www.linkedin.com/in/okasha-rehman-04857a295/" target="_blank"
+                                    class="social-item">
+                                    <span class="social-icon">In</span>
+                                    <span>Okasha Rehman</span>
+                                </a>
+                                <a href="https://github.com/OkashaRehman" target="_blank" class="social-item">
+                                    <span class="social-icon">Gh</span>
+                                    <span>OkashaRehman</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer under container -->
+                <footer class="footer">
+                    <p class="copyright">&copy; 2026 Okasha Rehman. All rights reserved.</p>
+                </footer>
+            </div>
+        </section>
+    </main>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal__backdrop"></div>
+        <div class="modal__content">
+            <button class="modal__close" aria-label="Close modal">&times;</button>
+            <div class="modal__body">
+                <h2 class="modal__title"></h2>
+                <p class="modal__description"></p>
+
+                <div class="modal__section">
+                    <h3 class="modal__section-title">Technologies Used</h3>
+                    <div class="modal__tech-list"></div>
+                </div>
+
+                <div class="modal__section">
+                    <h3 class="modal__section-title">Key Features</h3>
+                    <ul class="modal__features-list"></ul>
+                </div>
+
+                <div class="modal__section">
+                    <h3 class="modal__section-title">Challenges & Solutions</h3>
+                    <p class="modal__challenges"></p>
+                </div>
+
+                <div class="modal__links">
+                    <a href="#" class="btn btn--outline modal__link" target="_blank">View Live Demo</a>
+                    <a href="#" class="btn btn--outline modal__link" target="_blank">View Code</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>
