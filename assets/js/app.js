@@ -259,14 +259,10 @@ if (sliderContainer && prevBtn && nextBtn) {
             if (!isHovering) {
                 sliderContainer.scrollLeft += autoScrollSpeed;
 
-                // Infinite Loop Logic (Seamless Reset)
-                // We scroll the container. The track is inside.
-                const track = sliderContainer.querySelector('.slider-track');
-
-                // Reset when we've scrolled past the first set (half the track width)
-                // We subtract the width to jump back seamlessly to the start
-                if (track && sliderContainer.scrollLeft >= (track.scrollWidth / 2)) {
-                    sliderContainer.scrollLeft -= (track.scrollWidth / 2);
+                // Reset when we've reached the end
+                if (sliderContainer.scrollLeft >= (sliderContainer.scrollWidth - sliderContainer.clientWidth)) {
+                    // Smoothly reset or jump? Jumping is safer for "infinite" feel without doubling DOM
+                    sliderContainer.scrollLeft = 0;
                 }
             }
             autoScrollId = requestAnimationFrame(scrollLoop);
