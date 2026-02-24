@@ -240,15 +240,29 @@ modal.querySelector('.modal__content').addEventListener('click', (e) => {
 /* -------------------------------------------------------------------------- */
 /*                               SLIDER LOGIC                                 */
 /* -------------------------------------------------------------------------- */
+const sliderTrack = document.querySelector('.slider-track');
 const sliderContainer = document.querySelector('.slider-container');
 const prevBtn = document.querySelector('.slider-arrow--prev');
 const nextBtn = document.querySelector('.slider-arrow--next');
 
-if (sliderContainer && prevBtn && nextBtn) {
+if (sliderContainer && sliderTrack && prevBtn && nextBtn) {
+    const originalCards = Array.from(sliderTrack.children);
+
+    // Clone cards for seamless loop
+    originalCards.forEach(card => {
+        const clone = card.cloneNode(true);
+        // Important: clones need event listeners too
+        clone.addEventListener('click', () => {
+            const projectId = clone.getAttribute('data-project-id');
+            openModal(projectId);
+        });
+        sliderTrack.appendChild(clone);
+    });
+
     // Scroll amount = card width + gap
     const getScrollAmount = () => {
-        const card = sliderContainer.querySelector('.project-card');
-        const gap = 32;
+        const card = sliderTrack.querySelector('.project-card');
+        const gap = 32; // Matches gap: 2rem in CSS
         return card ? card.offsetWidth + gap : 400;
     };
 
@@ -275,9 +289,9 @@ if (sliderContainer && prevBtn && nextBtn) {
             if (!isHovering) {
                 sliderContainer.scrollLeft += autoScrollSpeed;
 
-                // Reset when we've reached the end
-                if (sliderContainer.scrollLeft >= (sliderContainer.scrollWidth - sliderContainer.clientWidth)) {
-                    // Smoothly reset or jump? Jumping is safer for "infinite" feel without doubling DOM
+                // Seamless Teleportation
+                // track.scrollWidth / 2 is the length of the original set
+                if (sliderContainer.scrollLeft >= (sliderTrack.scrollWidth / 2)) {
                     sliderContainer.scrollLeft = 0;
                 }
             }
@@ -289,16 +303,13 @@ if (sliderContainer && prevBtn && nextBtn) {
 
     // Pause on hover
     sliderContainer.addEventListener('mouseenter', () => isHovering = true);
-    sliderContainer.addEventListener('mouseleave', () => {
-        isHovering = false;
-        // Ensure we resume
-    });
+    sliderContainer.addEventListener('mouseleave', () => isHovering = false);
 
     // Restart auto-scroll after manual interaction
     let timeoutId;
     const resetAutoScroll = () => {
-        // Only pause if not hovering (i.e. if triggered by manual button click)
         if (!isHovering) {
+            const wasAnimating = !!autoScrollId;
             isHovering = true;
             clearTimeout(timeoutId);
             timeoutId = setTimeout(() => {
@@ -309,7 +320,6 @@ if (sliderContainer && prevBtn && nextBtn) {
 
     // Initialize
     startAutoScroll();
-
 }
 
 /* -------------------------------------------------------------------------- */
