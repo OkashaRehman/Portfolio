@@ -240,46 +240,31 @@ modal.querySelector('.modal__content').addEventListener('click', (e) => {
 /* -------------------------------------------------------------------------- */
 /*                               SLIDER LOGIC                                 */
 /* -------------------------------------------------------------------------- */
-const sliderTrack = document.querySelector('.slider-track');
 const sliderContainer = document.querySelector('.slider-container');
 const prevBtn = document.querySelector('.slider-arrow--prev');
 const nextBtn = document.querySelector('.slider-arrow--next');
 
-if (sliderContainer && sliderTrack && prevBtn && nextBtn) {
-    // 1. Clone cards programmatically to double the content
-    const cards = Array.from(sliderTrack.children);
-    cards.forEach(card => {
-        const clone = card.cloneNode(true);
-        // Important: re-attach modal click listeners to clones
-        clone.addEventListener('click', () => {
-            const projectId = clone.getAttribute('data-project-id');
-            openModal(projectId);
+if (sliderContainer && prevBtn && nextBtn) {
+    const track = sliderContainer.querySelector('.slider-track');
+
+    // Programmatic cloning for seamless loop
+    const cloneItems = () => {
+        const items = [...track.children];
+        items.forEach(item => {
+            const clone = item.cloneNode(true);
+            track.appendChild(clone);
         });
-        sliderTrack.appendChild(clone);
-    });
-
-    // 2. Calculate the exact width of the original set (one half of the doubled track)
-    // We use actual element positions to be pixels-perfect
-    const getFirstSetWidth = () => {
-        const totalCards = sliderTrack.children.length;
-        const originalCount = totalCards / 2;
-        if (originalCount <= 0) return 0;
-
-        const firstCard = sliderTrack.children[0];
-        const lastOriginalCard = sliderTrack.children[originalCount - 1];
-        const nextCard = sliderTrack.children[originalCount];
-
-        // Width + Gap between the last original and first clone
-        const gap = nextCard.offsetLeft - (lastOriginalCard.offsetLeft + lastOriginalCard.offsetWidth);
-        return lastOriginalCard.offsetLeft + lastOriginalCard.offsetWidth + gap;
     };
+    cloneItems();
 
-    // 3. Manual Navigation
+    // Scroll amount = card width + gap
     const getScrollAmount = () => {
-        const card = sliderTrack.querySelector('.project-card');
-        return card ? card.offsetWidth + 32 : 400; // 32 is the 2rem gap
+        const card = track.querySelector('.project-card');
+        const gap = 32;
+        return card ? card.offsetWidth + gap : 400;
     };
 
+    // Manual Navigation
     nextBtn.addEventListener('click', () => {
         const scrollAmount = getScrollAmount();
         sliderContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
@@ -292,47 +277,51 @@ if (sliderContainer && sliderTrack && prevBtn && nextBtn) {
         resetAutoScroll();
     });
 
-    // 4. Infinite Auto-Scroll Logic
-    let autoScrollSpeed = 1; // pixels per frame
+    // Auto Scroll Logic
+    let autoScrollSpeed = 1; // px per frame
     let isHovering = false;
     let autoScrollId;
-    let firstSetWidth = 0;
 
-    // Recalculate width on resize (important for responsiveness)
-    const updateDimensions = () => {
-        firstSetWidth = getFirstSetWidth();
-    };
-    window.addEventListener('resize', updateDimensions);
-    updateDimensions();
+    const startAutoScroll = () => {
+        const scrollLoop = () => {
+            if (!isHovering) {
+                sliderContainer.scrollLeft += autoScrollSpeed;
 
-    const scrollLoop = () => {
-        if (!isHovering) {
-            sliderContainer.scrollLeft += autoScrollSpeed;
-
-            // Teleport back to start when we've scrolled past the first set
-            // We use a small buffer to avoid jitter
-            if (sliderContainer.scrollLeft >= firstSetWidth) {
-                sliderContainer.scrollLeft = 0;
+                // Seamless Infinite Loop Logic
+                // If we've scrolled past the original set (half the track width), reset to 0
+                if (sliderContainer.scrollLeft >= (track.scrollWidth / 2)) {
+                    sliderContainer.scrollLeft = 0;
+                }
             }
-        }
+            autoScrollId = requestAnimationFrame(scrollLoop);
+        };
+        cancelAnimationFrame(autoScrollId);
         autoScrollId = requestAnimationFrame(scrollLoop);
     };
 
-    // Pause functionality
+    // Pause on hover
     sliderContainer.addEventListener('mouseenter', () => isHovering = true);
-    sliderContainer.addEventListener('mouseleave', () => isHovering = false);
+    sliderContainer.addEventListener('mouseleave', () => {
+        isHovering = false;
+        // Ensure we resume
+    });
 
-    let interactionTimeout;
+    // Restart auto-scroll after manual interaction
+    let timeoutId;
     const resetAutoScroll = () => {
-        isHovering = true;
-        clearTimeout(interactionTimeout);
-        interactionTimeout = setTimeout(() => {
-            isHovering = false;
-        }, 2000); // Resume after 2s of no activity
+        // Only pause if not hovering (i.e. if triggered by manual button click)
+        if (!isHovering) {
+            isHovering = true;
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(() => {
+                isHovering = false;
+            }, 2000);
+        }
     };
 
-    // Initial Start
-    scrollLoop();
+    // Initialize
+    startAutoScroll();
+
 }
 
 /* -------------------------------------------------------------------------- */
