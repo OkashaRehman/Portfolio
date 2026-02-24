@@ -128,6 +128,13 @@ const projectData = {
     "superstore-bi": {
         title: "Superstore Business Intelligence Dashboard",
         description: "A comprehensive business intelligence dashboard analyzing sales, profit, and customer behavior in a retail superstore dataset. Built with Tableau to provide interactive insights for stakeholders across the organization.",
+        images: [
+            "assets/images/projects/superstore bi/Picture15.png",
+            "assets/images/projects/superstore bi/Picture16.png",
+            "assets/images/projects/superstore bi/Picture17.png",
+            "assets/images/projects/superstore bi/Picture18.png",
+            "assets/images/projects/superstore bi/Picture19.png"
+        ],
         technologies: ["Tableau", "Business Intelligence", "Data Analysis", "SQL", "Dashboard Design"],
         features: [
             "Sales and profit trend analysis with year-over-year comparisons",
