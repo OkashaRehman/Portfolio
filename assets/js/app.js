@@ -54,7 +54,7 @@ const projectData = {
         codeUrl: "#"
     },
     "healthcare-ui": {
-        title: "Smart Healthcare Appointment Interface",
+        title: "Smart Healthcare Appointment",
         description: "An accessibility-first healthcare appointment booking system designed to support diverse user groups, including elderly users, low-literacy users, and people with disabilities. The project rethinks healthcare interfaces by offering multiple interaction modes instead of a one-size-fits-all UI.",
         images: [
             "assets/images/projects/smart-health-care/Screenshot 2026-02-24 230639.png",
