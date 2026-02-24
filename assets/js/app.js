@@ -178,6 +178,11 @@ const projectData = {
     "cpu-scheduler": {
         title: "Hybrid Lock-Aware CPU Scheduler",
         description: "A novel CPU scheduling algorithm that extends traditional Round Robin with lock-dependency awareness. By intelligently managing process queues based on synchronization primitive availability, it significantly reduces wasted quanta and context switch overhead in multi-process environments.",
+        images: [
+            "assets/images/projects/Cpu scheduler/Screenshot 2026-02-24 224446.png",
+            "assets/images/projects/Cpu scheduler/Screenshot 2026-02-24 224603.png",
+            "assets/images/projects/Cpu scheduler/Screenshot 2026-02-24 224612.png"
+        ],
         technologies: ["C++", "Operating Systems", "Algorithm Design", "Process Management", "Concurrency", "Theoretical Analysis"],
         features: [
             "Novel scheduling logic extending Round Robin with lock awareness",
