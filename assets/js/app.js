@@ -32,6 +32,14 @@ const projectData = {
     "water-shortage": {
         title: "Agricultural Water Shortage Prediction",
         description: "A machine-learning system that predicts agricultural water shortage severity across districts by combining meteorological data, crop statistics, and soil characteristics. This data-driven approach helps farmers and policymakers make informed decisions about water management and irrigation planning.",
+        images: [
+            "assets/images/projects/water-shortage/Picture1.png",
+            "assets/images/projects/water-shortage/Picture2.png",
+            "assets/images/projects/water-shortage/Picture3.png",
+            "assets/images/projects/water-shortage/Picture4.png",
+            "assets/images/projects/water-shortage/Picture5.png",
+            "assets/images/projects/water-shortage/Picture6.png"
+        ],
         technologies: ["Python", "Pandas", "Scikit-Learn", "Gradient Boosting", "Data Analysis", "Machine Learning"],
         features: [
             "Multi-source dataset integration (meteorological, crop, and soil data)",
@@ -96,6 +104,14 @@ const projectData = {
     "social-media": {
         title: "Social Media Analytics Dashboard",
         description: "An interactive analytics dashboard analyzing social media engagement patterns across multiple platforms to support content strategy decisions. Converts raw engagement data into actionable insights using interactive visualizations.",
+        images: [
+            "assets/images/projects/Social-media-analytics/Picture7.png",
+            "assets/images/projects/Social-media-analytics/Picture9.png",
+            "assets/images/projects/Social-media-analytics/Picture10.png",
+            "assets/images/projects/Social-media-analytics/Picture11.png",
+            "assets/images/projects/Social-media-analytics/Picture13.png",
+            "assets/images/projects/Social-media-analytics/Picture14.png"
+        ],
         technologies: ["Python", "Pandas", "Plotly", "Data Visualization", "Dash", "Statistical Analysis"],
         features: [
             "Engagement metrics analysis (likes, shares, comments, reach)",
@@ -128,6 +144,17 @@ const projectData = {
     "study-buddy": {
         title: "Study Buddy – UI/UX Mobile App",
         description: "A mobile app UI/UX project focused on helping students connect with study partners, manage sessions, and communicate efficiently. Designed with a clean, minimal interface emphasizing ease of use and quick interactions.",
+        images: [
+            "assets/images/projects/study-buddy/Screenshot 2026-02-24 192543.png",
+            "assets/images/projects/study-buddy/Screenshot 2026-02-24 192603.png",
+            "assets/images/projects/study-buddy/Screenshot 2026-02-24 192612.png",
+            "assets/images/projects/study-buddy/Screenshot 2026-02-24 192620.png",
+            "assets/images/projects/study-buddy/Screenshot 2026-02-24 192630.png",
+            "assets/images/projects/study-buddy/Screenshot 2026-02-24 192637.png",
+            "assets/images/projects/study-buddy/Screenshot 2026-02-24 192647.png",
+            "assets/images/projects/study-buddy/Screenshot 2026-02-24 192655.png",
+            "assets/images/projects/study-buddy/Screenshot 2026-02-24 192703.png"
+        ],
         technologies: ["Figma", "UI Design", "UX Research", "Wireframing", "Prototyping", "User Testing"],
         features: [
             "Study session scheduling with calendar integration",
@@ -181,6 +208,50 @@ function openModal(projectId) {
     // Populate modal content
     modalTitle.textContent = project.title;
     modalDescription.textContent = project.description;
+
+    // Image Slider logic
+    const modalBody = modal.querySelector('.modal__body');
+    // Remove existing slider if any
+    const existingSlider = modal.querySelector('.modal__image-slider');
+    if (existingSlider) existingSlider.remove();
+
+    if (project.images && project.images.length > 0) {
+        const sliderHTML = `
+            <div class="modal__image-slider">
+                <button class="slider-nav slider-nav--prev" aria-label="Previous image">&larr;</button>
+                <div class="slider-image-container">
+                    <img src="${project.images[0]}" alt="${project.title}" class="modal__image">
+                </div>
+                <button class="slider-nav slider-nav--next" aria-label="Next image">&rarr;</button>
+            </div>
+        `;
+        // Insert before technologies section
+        const techSection = modal.querySelector('.modal__section');
+        techSection.insertAdjacentHTML('beforebegin', sliderHTML);
+
+        let currentImgIndex = 0;
+        const sliderImg = modal.querySelector('.modal__image');
+        const prevImgBtn = modal.querySelector('.slider-nav--prev');
+        const nextImgBtn = modal.querySelector('.slider-nav--next');
+
+        const updateImage = (index) => {
+            sliderImg.style.opacity = '0';
+            setTimeout(() => {
+                sliderImg.src = project.images[index];
+                sliderImg.style.opacity = '1';
+            }, 200);
+        };
+
+        prevImgBtn.addEventListener('click', () => {
+            currentImgIndex = (currentImgIndex - 1 + project.images.length) % project.images.length;
+            updateImage(currentImgIndex);
+        });
+
+        nextImgBtn.addEventListener('click', () => {
+            currentImgIndex = (currentImgIndex + 1) % project.images.length;
+            updateImage(currentImgIndex);
+        });
+    }
 
     // Populate technologies
     modalTechList.innerHTML = project.technologies

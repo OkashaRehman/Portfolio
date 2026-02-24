@@ -688,8 +688,49 @@ body:hover .cursor-outline {
 }
 
 .project-card__image-holder {
+    position: relative;
     width: 100%;
     height: 100%;
+    background: var(--color-bg);
+    /* Fallback */
+}
+
+/* Theme-matching overlay for all project images */
+.project-card__image-holder::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom,
+            rgba(15, 23, 42, 0.1),
+            rgba(15, 23, 42, 0.3));
+    background-color: rgba(56, 189, 248, 0.02);
+    /* Barely visible tint */
+    mix-blend-mode: normal;
+    transition: opacity var(--transition-fast);
+    z-index: 1;
+}
+
+.project-card:hover .project-card__image-holder::after {
+    opacity: 0.6;
+}
+
+.project-card__bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1;
+    transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.project-card:hover .project-card__bg-image {
+    opacity: 0.4;
+    transform: scale(1.1);
 }
 
 .placeholder-image {
@@ -697,12 +738,77 @@ body:hover .cursor-outline {
     height: 100%;
     /* Gradient handled inline in HTML for variety */
     opacity: 0.8;
-    transition: opacity var(--transition-smooth), transform var(--transition-smooth);
+    transition: opacity var(--transition-fast), transform var(--transition-fast);
 }
 
 .project-card:hover .placeholder-image {
     opacity: 0.4;
     transform: scale(1.1);
+}
+
+/* Modal Image Slider Styles */
+.modal__image-slider {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    margin-bottom: var(--spacing-md);
+    border-radius: 12px;
+    overflow: hidden;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-image-container {
+    width: 100%;
+    height: 100%;
+}
+
+.modal__image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: opacity 0.3s ease;
+}
+
+.slider-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(15, 23, 42, 0.6);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.2rem;
+    z-index: 5;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(4px);
+}
+
+.slider-nav:hover {
+    background: var(--color-accent);
+    color: var(--color-bg);
+}
+
+.slider-nav--prev {
+    left: 15px;
+}
+
+.slider-nav--next {
+    right: 15px;
+}
+
+@media (max-width: 768px) {
+    .modal__image-slider {
+        height: 250px;
+    }
 }
 
 .project-card__overlay {
