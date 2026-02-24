@@ -56,6 +56,20 @@ const projectData = {
     "healthcare-ui": {
         title: "Smart Healthcare Appointment Interface",
         description: "An accessibility-first healthcare appointment booking system designed to support diverse user groups, including elderly users, low-literacy users, and people with disabilities. The project rethinks healthcare interfaces by offering multiple interaction modes instead of a one-size-fits-all UI.",
+        images: [
+            "assets/images/projects/smart-health-care/Screenshot 2026-02-24 230639.png",
+            "assets/images/projects/smart-health-care/Screenshot 2026-02-24 230652.png",
+            "assets/images/projects/smart-health-care/Screenshot 2026-02-24 230708.png",
+            "assets/images/projects/smart-health-care/Screenshot 2026-02-24 230746.png",
+            "assets/images/projects/smart-health-care/Screenshot 2026-02-24 230805.png",
+            "assets/images/projects/smart-health-care/Screenshot 2026-02-24 231858.png",
+            "assets/images/projects/smart-health-care/Screenshot 2026-02-24 231942.png",
+            "assets/images/projects/smart-health-care/Screenshot 2026-02-24 231951.png",
+            "assets/images/projects/smart-health-care/Screenshot 2026-02-24 232138.png",
+            "assets/images/projects/smart-health-care/Screenshot 2026-02-24 232203.png",
+            "assets/images/projects/smart-health-care/Screenshot 2026-02-24 232217.png",
+            "assets/images/projects/smart-health-care/Screenshot 2026-02-24 232359.png"
+        ],
         technologies: ["Figma", "UI/UX Design", "Accessibility (WCAG)", "User Flows", "Prototyping", "Mobile-First Design"],
         features: [
             "Multiple interaction modes (Standard, Elderly-Friendly, Voice, Icon-Based, Sign Language)",
