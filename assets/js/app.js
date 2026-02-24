@@ -245,21 +245,9 @@ const prevBtn = document.querySelector('.slider-arrow--prev');
 const nextBtn = document.querySelector('.slider-arrow--next');
 
 if (sliderContainer && prevBtn && nextBtn) {
-    const track = sliderContainer.querySelector('.slider-track');
-
-    // Programmatic cloning for seamless loop
-    const cloneItems = () => {
-        const items = [...track.children];
-        items.forEach(item => {
-            const clone = item.cloneNode(true);
-            track.appendChild(clone);
-        });
-    };
-    cloneItems();
-
     // Scroll amount = card width + gap
     const getScrollAmount = () => {
-        const card = track.querySelector('.project-card');
+        const card = sliderContainer.querySelector('.project-card');
         const gap = 32;
         return card ? card.offsetWidth + gap : 400;
     };
@@ -287,9 +275,10 @@ if (sliderContainer && prevBtn && nextBtn) {
             if (!isHovering) {
                 sliderContainer.scrollLeft += autoScrollSpeed;
 
-                // Seamless Infinite Loop Logic
-                // If we've scrolled past the original set (half the track width), reset to 0
-                if (sliderContainer.scrollLeft >= (track.scrollWidth / 2)) {
+                // Reset when we've reached the end
+                // Added a small buffer (1px) to avoid premature reset due to rounding
+                if (sliderContainer.scrollLeft >= (sliderContainer.scrollWidth - sliderContainer.clientWidth - 1)) {
+                    // Small delay or just reset
                     sliderContainer.scrollLeft = 0;
                 }
             }
