@@ -140,6 +140,22 @@ const projectData = {
         challenges: "Designing an interface that appeals to students across different age groups and study preferences. Conducted user interviews and usability testing with 20+ students to validate design decisions. Simplified complex features like group coordination into intuitive, tap-friendly mobile interactions.",
         demoUrl: "#",
         codeUrl: "#"
+    },
+    "cpu-scheduler": {
+        title: "Hybrid Lock-Aware CPU Scheduler",
+        description: "A novel CPU scheduling algorithm that extends traditional Round Robin with lock-dependency awareness. By intelligently managing process queues based on synchronization primitive availability, it significantly reduces wasted quanta and context switch overhead in multi-process environments.",
+        technologies: ["C++", "Operating Systems", "Algorithm Design", "Process Management", "Concurrency", "Theoretical Analysis"],
+        features: [
+            "Novel scheduling logic extending Round Robin with lock awareness",
+            "Dual-queue architecture for maintaining fairness and priority",
+            "Wasted quanta reduction by checking lock availability pre-dispatch",
+            "Shortened critical section durations through reduced preemption",
+            "Prevention of process blocking on already-held synchronization primitives",
+            "Theoretical performance analysis and comparison with baseline RR"
+        ],
+        challenges: "The primary challenge was maintaining strict scheduling fairness while introducing dependency-aware logic. Implemented a dual-queue system to ensure that while waiting for locks, processes didn't suffer from long-term starvation. Balanced the trade-off between scheduling complexity and performance gains.",
+        demoUrl: "#",
+        codeUrl: "#"
     }
 };
 
